@@ -1,0 +1,2 @@
+# Student progress data — keep directory, ignore individual files
+students/*.json

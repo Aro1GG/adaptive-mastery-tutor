@@ -1,0 +1,78 @@
+topic: "计算机网络 — 传输层"
+knowledge_points:
+  - id: transport-role
+    name: "传输层的角色与功能"
+    bloom_level: remember
+    prerequisites: []
+    key_concepts:
+      - "端到端通信"
+      - "复用与分用"
+      - "端口号"
+      - "UDP 与 TCP 的区别"
+
+  - id: udp-basics
+    name: "UDP 协议基础"
+    bloom_level: remember
+    prerequisites: [transport-role]
+    key_concepts:
+      - "无连接"
+      - "尽最大努力交付"
+      - "报文格式（首部 8 字节）"
+      - "校验和"
+      - "适用场景（DNS、流媒体）"
+
+  - id: reliable-transmission
+    name: "可靠传输原理"
+    bloom_level: understand
+    prerequisites: [transport-role]
+    key_concepts:
+      - "停止等待协议"
+      - "流水线传输"
+      - "GBN（回退 N 步）"
+      - "选择重传"
+      - "确认与超时重传"
+
+  - id: tcp-handshake
+    name: "TCP 连接管理 — 三次握手"
+    bloom_level: understand
+    prerequisites: [reliable-transmission, udp-basics]
+    key_concepts:
+      - "SYN"
+      - "SYN-ACK"
+      - "ACK"
+      - "半连接队列"
+      - "SYN Flood 攻击与防护"
+      - "序列号协商"
+
+  - id: tcp-wave
+    name: "TCP 连接释放 — 四次挥手"
+    bloom_level: understand
+    prerequisites: [tcp-handshake]
+    key_concepts:
+      - "FIN"
+      - "半关闭状态"
+      - "TIME_WAIT"
+      - "2MSL 等待"
+
+  - id: tcp-congestion
+    name: "TCP 拥塞控制"
+    bloom_level: apply
+    prerequisites: [tcp-handshake, reliable-transmission]
+    key_concepts:
+      - "慢启动"
+      - "拥塞避免"
+      - "快重传"
+      - "快恢复"
+      - "AIMD 原则"
+      - "ssthresh"
+
+  - id: transport-troubleshoot
+    name: "传输层问题诊断"
+    bloom_level: apply
+    prerequisites: [tcp-handshake, tcp-wave, tcp-congestion]
+    key_concepts:
+      - "TIME_WAIT 过多"
+      - "连接被拒绝 vs 连接超时"
+      - "半连接队列溢出"
+      - "端口耗尽"
+      - "netstat / ss 工具"
